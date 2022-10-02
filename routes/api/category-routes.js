@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
     ]
   })
   .then(dbPostData => {
-    const categories =dbPostData.map(category => category.get({ plain: true });
+    const categories =dbPostData.map(category => category.get({ plain: true }));
     //??res.render('category', { categories, loggedIn: true }));
   })
   

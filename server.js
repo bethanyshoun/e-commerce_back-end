@@ -1,7 +1,7 @@
 const express = require('express');
 const routes = require('./routes');
 // import sequelize connection
-import { Sequelize } from "sequelize"
+//import { Sequelize } from "sequelize"
 
 const connection = new Sequelize(
     process.env.DATABASE_NAME,
