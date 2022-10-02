@@ -5,7 +5,24 @@ const { Category, Product } = require('../../models');
 
 router.get('/', (req, res) => {
   // find all categories
-  // be sure to include its associated Products
+  Post.findAll({
+    where: {
+      id: req.session.id
+    },
+    // be sure to include its associated Products
+    include: [
+      {
+        model: Product,
+        attributes: ['id', 'product_name', 'price', 'stock', 'category_id'],
+      }
+    ]
+  })
+  .then(dbPostData => {
+    const categories =dbPostData.map(category => category.get({ plain: true });
+    //??res.render('category', { categories, loggedIn: true }));
+  })
+  
+  
 });
 
 router.get('/:id', (req, res) => {
