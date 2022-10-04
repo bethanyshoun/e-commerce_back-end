@@ -48,7 +48,6 @@ router.get('/:id', (req, res) => {
       'stock',
       'category_id.'
     ],
-     // be sure to include its associated Category and Tag data
     include: [
       {
         model: Category,
@@ -82,6 +81,7 @@ router.post('/', (req, res) => {
     console.log(err);
     res.status(500).json(err);
   });
+
 
   Product.create(req.body)
     .then((product) => {
